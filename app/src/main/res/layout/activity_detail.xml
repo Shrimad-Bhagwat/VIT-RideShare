@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Ride Details"
+        android:textColor="@color/teal_700"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+         <RelativeLayout
+             android:layout_marginTop="40dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center|center_vertical"
+             android:layout_gravity="center_vertical|center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="20dp"
+                android:text="Mumbai"
+                android:layout_gravity="center"
+                android:id="@+id/from_tv"
+                android:textSize="24sp" />
+
+             <TextView
+                 android:id="@+id/arrow"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+
+                 android:layout_marginStart="20dp"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginEnd="20dp"
+                 android:layout_marginBottom="20dp"
+                 android:layout_toRightOf="@id/from_tv"
+                 android:drawableStart="@drawable/baseline_arrow_right_alt_24"
+                 android:paddingHorizontal="6dp"
+                 android:paddingVertical="10dp"
+                 android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Delhi"
+                android:layout_gravity="center"
+                android:id="@+id/to_tv"
+                android:layout_toRightOf="@id/arrow"
+                android:textSize="24sp"/>
+         </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Name : Shrimad Bhagwat"
+        android:id="@+id/name_tv"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Date : "
+        android:id="@+id/date_tv"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Contact"
+        android:id="@+id/contact_button"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"/>
+</LinearLayout>
