@@ -25,7 +25,7 @@
              android:layout_gravity="center_vertical|center">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
 
                 android:padding="20dp"
@@ -49,7 +49,7 @@
                  android:paddingVertical="10dp"
                  android:textSize="20sp" />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="Delhi"
@@ -67,7 +67,7 @@
         android:id="@+id/name_tv"
         android:textSize="20sp"
         android:padding="8dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="30dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
         android:id="@+id/date_tv"
         android:textSize="20sp"
         android:padding="8dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
