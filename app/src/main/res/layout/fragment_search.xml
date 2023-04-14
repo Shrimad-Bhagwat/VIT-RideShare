@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SearchFragment"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/custom_edittext"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Search Ride"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/location_from"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:drawablePadding="8dp"
+                android:hint="Leaving From"
+                android:padding="8sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/location_to"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:drawablePadding="8dp"
+                android:hint="Going To"
+                android:padding="8sp"
+                android:textColor="@color/black" />
+
+
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_edittext"
+                android:text="Search"
+                android:textColor="@color/white"
+                android:textSize="18sp"></Button>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

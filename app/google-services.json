@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "277424480965",
+    "project_id": "vit-rideshare",
+    "storage_bucket": "vit-rideshare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277424480965:android:7136d87f73026a106206ac",
+        "android_client_info": {
+          "package_name": "com.shrimadbhagwat.vitrideshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277424480965-vrmebr10had78ls1kdks66tksuboml7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHLxQjQeh_yfBZmlckTSxOREAvPJj9K6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277424480965-vrmebr10had78ls1kdks66tksuboml7p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

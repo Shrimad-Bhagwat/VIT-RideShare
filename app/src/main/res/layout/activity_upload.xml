@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UploadActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="20dp"
+            android:background="@drawable/custom_edittext">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Details"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="@color/teal_700"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_name"
+                android:background="@drawable/custom_edittext"
+                android:height="50dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Name "
+                android:gravity="start|center_vertical"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/from_location"
+                android:background="@drawable/custom_edittext"
+                android:height="50dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="From Location"
+                android:gravity="start|center_vertical"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/to_location"
+                android:background="@drawable/custom_edittext"
+                android:height="50dp"
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="To Location"
+                android:gravity="start|center_vertical"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idEdtDate"
+                android:background="@drawable/custom_edittext"
+                android:height="50dp"
+                android:drawableLeft="@drawable/baseline_calendar_month_24"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Select Date"
+                android:gravity="start|center_vertical"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact"
+                android:background="@drawable/custom_edittext"
+                android:height="50dp"
+                android:drawableLeft="@drawable/baseline_local_phone_24"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Contact"
+                android:gravity="start|center_vertical"
+                android:inputType="number"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/saveButton"
+                android:textSize="18sp"
+                app:cornerRadius = "30dp"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:padding="8dp"
+
+                />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>
