@@ -70,6 +70,7 @@ public class UploadActivity extends AppCompatActivity {
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
+
         dialog.show();
 
         String name = nameEdt.getText().toString();

@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         dataList = new ArrayList<>();
         MyAdapter adapter = new MyAdapter(HomeActivity.this, dataList);
         recyclerView.setAdapter(adapter);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Ride Details");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Ride Data");
         dialog.show();
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
