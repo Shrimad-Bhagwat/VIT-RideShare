@@ -37,4 +37,8 @@ public class DataClass {
         return contact;
     }
 
+    public DataClass(){
+
+    }
+
 }
