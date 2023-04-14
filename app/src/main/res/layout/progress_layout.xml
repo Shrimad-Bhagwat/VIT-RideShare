@@ -14,11 +14,11 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="Saving..."
         android:layout_weight="1"
-        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:text="Loading..."
         android:textColor="@color/teal_700"
-        android:gravity="start|center_vertical"/>
+        android:textSize="18sp" />
 
 
 </LinearLayout>
