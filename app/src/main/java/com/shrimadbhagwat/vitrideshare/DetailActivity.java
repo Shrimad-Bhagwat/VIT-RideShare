@@ -2,12 +2,14 @@ package com.shrimadbhagwat.vitrideshare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 public class DetailActivity extends AppCompatActivity {
 
     TextView from_tv, to_tv, name_tv, date_tv;
+
     FloatingActionButton deleteButton;
 
     Button contactButton;
@@ -31,6 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
     String currentUser,creator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +43,14 @@ public class DetailActivity extends AppCompatActivity {
         to_tv = findViewById(R.id.to_tv);
         name_tv = findViewById(R.id.name_tv);
         date_tv = findViewById(R.id.date_tv);
+
         deleteButton = findViewById(R.id.deleteButton);
         contactButton = findViewById(R.id.contact_button);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         currentUser = user.getEmail().toString();
+
 
         Bundle bundle = getIntent().getExtras();
 
@@ -90,5 +95,6 @@ public class DetailActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }
