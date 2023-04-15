@@ -7,7 +7,16 @@ public class DataClass {
     private  String to_location;
     private  String date;
     private  String contact;
+    private String key;
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
+    }
+public DataClass(){
 
+}
 
     public DataClass(String name, String from_location, String to_location, String date, String contact) {
         this.name = name;
@@ -37,8 +46,6 @@ public class DataClass {
         return contact;
     }
 
-    public DataClass(){
 
-    }
 
 }
