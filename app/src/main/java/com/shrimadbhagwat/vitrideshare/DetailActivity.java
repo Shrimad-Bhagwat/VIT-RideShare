@@ -3,9 +3,11 @@ package com.shrimadbhagwat.vitrideshare;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,9 @@ public class DetailActivity extends AppCompatActivity {
 
     TextView from_tv, to_tv, name_tv, date_tv;
     FloatingActionButton deleteButton;
-    String key="";
+
+    Button contactButton;
+    String key="",contact;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -37,6 +41,7 @@ public class DetailActivity extends AppCompatActivity {
         name_tv = findViewById(R.id.name_tv);
         date_tv = findViewById(R.id.date_tv);
         deleteButton = findViewById(R.id.deleteButton);
+        contactButton = findViewById(R.id.contact_button);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -51,6 +56,7 @@ public class DetailActivity extends AppCompatActivity {
             key = bundle.getString("Key");
             creator = bundle.getString("Creator");
             date_tv.setText(bundle.getString("Date"));
+            contact = bundle.getString("Contact");
         }
 
         if(currentUser.equals(creator)){
@@ -62,6 +68,17 @@ public class DetailActivity extends AppCompatActivity {
             deleteButton.setVisibility(View.INVISIBLE);
 //            Log.d("Not Same",currentUser.toString()+" "+creator.toString());
         }
+
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+
+                Uri x = Uri.parse("tel:+91"+contact.toString());
+                callIntent.setData(Uri.parse(String.valueOf(x)));
+                startActivity(callIntent);
+            }
+        });
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
