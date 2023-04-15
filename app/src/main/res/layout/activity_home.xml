@@ -57,8 +57,9 @@
             android:backgroundTint="@color/green"
             android:src="@drawable/baseline_add_24"
             android:tint="@color/green"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            tools:ignore="SpeakableTextPresentCheck"
+            app:tint="@android:color/white"
+            />
 
     </RelativeLayout>
 
