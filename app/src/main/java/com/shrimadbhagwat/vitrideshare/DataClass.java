@@ -2,6 +2,15 @@ package com.shrimadbhagwat.vitrideshare;
 
 public class DataClass {
 
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    private String creator;
     private  String name;
     private  String from_location;
     private  String to_location;
@@ -18,12 +27,13 @@ public DataClass(){
 
 }
 
-    public DataClass(String name, String from_location, String to_location, String date, String contact) {
+    public DataClass(String name, String from_location, String to_location, String date, String contact, String creator) {
         this.name = name;
         this.from_location = from_location;
         this.to_location = to_location;
         this.date = date;
         this.contact = contact;
+        this.creator = creator;
     }
 
     public String getName() {

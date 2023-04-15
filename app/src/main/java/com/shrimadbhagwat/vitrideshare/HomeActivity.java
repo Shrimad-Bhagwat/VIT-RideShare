@@ -154,6 +154,9 @@ public class HomeActivity extends AppCompatActivity {
             else if (dataClass.getDate().toLowerCase().contains(text.toLowerCase())){
                 searchList.add(dataClass);
             }
+            else if (dataClass.getName().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(dataClass);
+            }
         }
         adapter.searchDataList(searchList);
     }
