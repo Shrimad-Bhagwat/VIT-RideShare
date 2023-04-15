@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                         Intent intent
                                                 = new Intent(SignUpActivity.this,
-                                                MainActivity.class);
+                                                HomeActivity.class);
                                         startActivity(intent);
                                     }
                                     else {
