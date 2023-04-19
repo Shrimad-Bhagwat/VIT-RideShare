@@ -80,6 +80,10 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setIcon(R.drawable.cabicon);
+//        getSupportActionBar().setTitle("VIT RideShare");
+
 
         FirebaseMessaging.getInstance().subscribeToTopic("notification");
 

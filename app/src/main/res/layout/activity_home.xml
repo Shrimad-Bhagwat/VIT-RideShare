@@ -14,7 +14,10 @@
         android:background="@drawable/custom_edittext"
         app:iconifiedByDefault="false"
         app:closeIcon="@drawable/baseline_clear_24"
-android:clickable="true"
+        android:clickable="true"
+        app:searchHintIcon="@null"
+        app:queryBackground="@android:color/transparent"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +41,7 @@ android:clickable="true"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,11 +59,11 @@ android:clickable="true"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="40dp"
             android:backgroundTint="@color/green"
+            android:paddingHorizontal="10dp"
             android:src="@drawable/baseline_add_24"
             android:tint="@color/green"
-            tools:ignore="SpeakableTextPresentCheck"
             app:tint="@android:color/white"
-            />
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </RelativeLayout>
 
