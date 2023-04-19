@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
+<!--        <item name="android:background">@color/bg</item>-->
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterAnimation">@transition/transition_anim</item>
         <item name="android:windowExitAnimation">@transition/transition_anim</item>

@@ -16,7 +16,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        app:cardElevation="20dp"
+        android:backgroundTint="@color/bg">
 
 
         <LinearLayout
@@ -44,6 +45,8 @@
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
                 android:hint="Name "
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:gravity="start|center_vertical"
                 />
             <EditText
@@ -53,6 +56,8 @@
                 android:background="@drawable/custom_edittext"
                 android:height="50dp"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:padding="16dp"
                 android:hint="From Location"
                 android:gravity="start|center_vertical"
@@ -61,6 +66,8 @@
                 />
             <EditText
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:layout_height="wrap_content"
                 android:id="@+id/to_location"
                 android:background="@drawable/custom_edittext"
@@ -76,6 +83,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:id="@+id/idEdtDate"
                 android:background="@drawable/custom_edittext"
                 android:height="50dp"
@@ -92,6 +101,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/contact"
                 android:background="@drawable/custom_edittext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:height="50dp"
                 android:drawableLeft="@drawable/baseline_local_phone_24"
                 android:drawablePadding="8dp"

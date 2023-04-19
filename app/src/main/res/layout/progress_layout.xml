@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:indeterminateTint="@color/teal_700" />
+        android:indeterminateTint="@color/green" />
 
     <TextView
         android:layout_width="0dp"
@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:gravity="start|center_vertical"
         android:text="Loading..."
-        android:textColor="@color/teal_700"
+        android:textColor="@color/green"
         android:textSize="18sp" />
 
 

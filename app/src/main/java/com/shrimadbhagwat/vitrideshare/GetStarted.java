@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 
 public class GetStarted extends AppCompatActivity {
     private Button getStarted;
@@ -17,7 +19,7 @@ public class GetStarted extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_started);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("notification");
         getStarted = findViewById(R.id.button);
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
