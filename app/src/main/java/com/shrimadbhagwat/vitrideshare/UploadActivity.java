@@ -62,7 +62,9 @@ public class UploadActivity extends AppCompatActivity {
         dateEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(UploadActivity.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                DatePickerDialog mDate = new DatePickerDialog (UploadActivity.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH));
+                mDate.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                mDate.show();
             }
         });
 

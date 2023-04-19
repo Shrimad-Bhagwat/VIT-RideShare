@@ -46,22 +46,25 @@
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
+                android:maxLines="1"
+                android:inputType="text"
                 ></EditText>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/custom_edittext"
-                android:padding="8sp"
-                android:layout_marginTop="20dp"
                 android:id="@+id/login_password"
-                android:hint="Password"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gray"
+                android:layout_width="301dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_edittext"
+
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-
-                android:inputType="textPassword"></EditText>
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="8sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"></EditText>
 
             <Button
                 android:layout_width="match_parent"
