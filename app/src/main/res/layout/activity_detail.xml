@@ -88,6 +88,19 @@
         android:textSize="20sp"
         android:padding="12dp"
         android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/baseline_local_phone_white"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:drawableLeft="@drawable/whatsapp_icon"
+        android:text="Whatsapp"
+        android:id="@+id/whatsapp_button"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:layout_gravity="center"
         android:textColor="@color/white"/>
     <RelativeLayout
         android:layout_width="match_parent"

@@ -123,7 +123,12 @@ public class HomeActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchView.setIconified(false);
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {

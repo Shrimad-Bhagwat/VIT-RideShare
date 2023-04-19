@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user = signupEmail.getText().toString();
                 String pass = signupPassword.getText().toString();
-                Log.d(user,pass);
+//                Log.d(user,pass);
                 if(user.isEmpty()){
                     signupEmail.setError("Email cannot be empty!");
                 }

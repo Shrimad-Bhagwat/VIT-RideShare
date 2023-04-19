@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_edittext"
-        android:focusable="false"
-        app:closeIcon="@drawable/baseline_clear_24"
         app:iconifiedByDefault="false"
+        app:closeIcon="@drawable/baseline_clear_24"
+android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="Search..."
-        app:searchHintIcon="@null"
+
         android:layout_marginHorizontal="12dp"
         app:searchIcon="@drawable/baseline_search_24" />
 

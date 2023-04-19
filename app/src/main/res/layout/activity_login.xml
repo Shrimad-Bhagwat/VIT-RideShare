@@ -85,7 +85,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
                 android:text="Not a member?   Sign Up"
-
+                android:textColor="@color/gray"
                 android:textSize="16sp"></TextView>
 
 

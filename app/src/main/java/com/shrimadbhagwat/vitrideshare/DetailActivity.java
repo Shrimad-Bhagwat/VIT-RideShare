@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
 
     FloatingActionButton deleteButton;
 
-    Button contactButton;
+    Button contactButton,whatsappButton;
     String key="",contact;
 
     private FirebaseAuth auth;
@@ -46,6 +46,7 @@ public class DetailActivity extends AppCompatActivity {
 
         deleteButton = findViewById(R.id.deleteButton);
         contactButton = findViewById(R.id.contact_button);
+        whatsappButton = findViewById(R.id.whatsapp_button);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -84,6 +85,16 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(callIntent);
             }
         });
+        whatsappButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://api.whatsapp.com/send?phone=+91"+contact.toString();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
