@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
+        android:backgroundTint="@color/bg"
         app:cardElevation="20dp">
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,11 +39,13 @@
                 android:background="@drawable/custom_edittext"
                 android:padding="8sp"
                 android:layout_marginTop="40dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:id="@+id/signup_email"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:textColor="@color/black"></EditText>
+                ></EditText>
 
             <EditText
                 android:layout_width="match_parent"
@@ -55,6 +58,7 @@
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"
+                android:textColorHint="@color/gray"
                 android:inputType="textPassword"></EditText>
 
             <Button
@@ -74,6 +78,8 @@
                 android:text="Already an User? Login"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:padding="8dp"
                 android:textSize="16sp"></TextView>
 

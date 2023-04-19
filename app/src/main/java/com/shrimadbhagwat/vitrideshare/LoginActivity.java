@@ -46,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if(!pass.isEmpty()){
+                        if(loginPassword.toString().length()<6){
+                            loginPassword.setError("Password cannot be less than 6!");
+                        }
                         auth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -56,12 +59,13 @@ public class LoginActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginActivity.this,"Login Failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this,"Login Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }else {
-                        loginPassword.setError("Password cannot be empty!");
+                    }else{
+                        loginPassword.setError("Password cannot be empty! or less than 6 letters");
                     }
+
                 } else if (email.isEmpty()) {
                     loginEmail.setError("Email cannot be empty");
                 }else {

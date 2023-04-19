@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,12 +44,18 @@ public class SignUpActivity extends AppCompatActivity {
                 String user = signupEmail.getText().toString();
                 String pass = signupPassword.getText().toString();
 //                Log.d(user,pass);
-                if(user.isEmpty()){
+                if(user.isEmpty() ){
                     signupEmail.setError("Email cannot be empty!");
+                }else if(!Patterns.EMAIL_ADDRESS.matcher(user).matches() ){
+                    signupEmail.setError("Enter valid Email!");
                 }
 
                 if(pass.isEmpty()){
                     signupPassword.setError("Password cannot be empty!");
+                }
+                if(pass.toString().length()<6){
+                    signupPassword.setError("Password cannot be less than 6 letters!");
+
                 }
                 else {
                     auth
@@ -61,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(),
                                                         "Registration successful!",
-                                                        Toast.LENGTH_LONG)
+                                                        Toast.LENGTH_SHORT)
                                                 .show();
 
                                         Intent intent
@@ -72,8 +79,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     else {
                                         Toast.makeText(
                                                         getApplicationContext(),
-                                                        "Registration failed!!"
-                                                                + " Please try again later",
+                                                        "Registration failed! "
+                                                                +task.getException().getMessage().toString(),
                                                         Toast.LENGTH_LONG)
                                                 .show();
 
