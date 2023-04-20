@@ -123,7 +123,9 @@ public class HomeActivity extends AppCompatActivity {
                     DataClass dataClass = itemSnapshot.getValue(DataClass.class);
                     dataClass.setKey(itemSnapshot.getKey());
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
-                    Date c = Calendar.getInstance().getTime();
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.DATE, -1);
+                    Date c = cal.getTime();
                     Date d1,d2;
                     try {
                         d1 = sdf.parse(dataClass.getDate().toString());
