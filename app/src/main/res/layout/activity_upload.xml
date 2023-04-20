@@ -61,7 +61,7 @@
                 android:textColorHint="@color/gray"
                 android:gravity="start|center_vertical"
                 />
-            <EditText
+            <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/from_location"
@@ -76,7 +76,7 @@
                 android:drawablePadding="8dp"
                 android:drawableLeft="@drawable/baseline_location_on_24"
                 />
-            <EditText
+            <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray"

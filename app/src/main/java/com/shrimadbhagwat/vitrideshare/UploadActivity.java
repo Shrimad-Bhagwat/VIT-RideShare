@@ -9,6 +9,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,7 +33,8 @@ import java.util.Locale;
 public class UploadActivity extends AppCompatActivity {
     Button saveButton;
     ImageView back_button;
-    EditText nameEdt,fromEdt,toEdt,contactEdt,descEdt;
+    EditText nameEdt,contactEdt,descEdt;
+    AutoCompleteTextView fromEdt,toEdt;
     EditText dateEdt;
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -64,6 +67,13 @@ public class UploadActivity extends AppCompatActivity {
         date = dateEdt.getText().toString();
         contact = contactEdt.getText().toString();
         desc = descEdt.getText().toString();
+
+
+        //Places
+        String[] places = getResources().getStringArray(R.array.places);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(UploadActivity.this, android.R.layout.simple_list_item_1,places);
+        fromEdt.setAdapter(arrayAdapter);
+        toEdt.setAdapter(arrayAdapter);
 
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
