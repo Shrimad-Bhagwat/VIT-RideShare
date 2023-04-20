@@ -1,8 +1,10 @@
 package com.shrimadbhagwat.vitrideshare;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -112,11 +114,21 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Ride Data");
+                new AlertDialog.Builder(DetailActivity.this)
+                        .setTitle("Delete")
+                        .setMessage("Are you sure you want to delete this?")
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
-                reference.child(key).removeValue();
-                Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                finish();
+                            public void onClick(DialogInterface dialog, int which) {
+                                reference.child(key).removeValue();
+                                Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+
             }
         });
 

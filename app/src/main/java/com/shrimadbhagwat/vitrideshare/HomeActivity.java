@@ -3,11 +3,14 @@ package com.shrimadbhagwat.vitrideshare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,17 +51,45 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseUser user;
     String userEmail;
 
+    @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        if(menu instanceof MenuBuilder){
+            MenuBuilder m = (MenuBuilder) menu;
+            m.setOptionalIconsVisible(true);
+        }
         userName = menu.findItem(R.id.user_name);
         userName.setTitle(userEmail);
+        userName.setEnabled(false);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if(id==R.id.share_btn){
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 
+            sharingIntent.setType("text/plain");
+
+            String shareBody = "Try out this new app VIT RideShare! https://github.com/Shrimad-Bhagwat/VIT-RideShare";
+
+            String shareSubject = "VIT RideShare";
+
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+            startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+            return true;
+        }
+        if(id==R.id.info_btn){
+            String url = "https://github.com/Shrimad-Bhagwat";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+            return true;
+        }
         if (id == R.id.menu_logout) {
             new AlertDialog.Builder(this)
                     .setTitle("Logout")
