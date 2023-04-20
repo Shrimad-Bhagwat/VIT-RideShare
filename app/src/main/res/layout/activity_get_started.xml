@@ -26,6 +26,7 @@
         android:background="@drawable/custom_edittext"
         android:text="Get Started"
         android:textColor="#FFFFFF"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

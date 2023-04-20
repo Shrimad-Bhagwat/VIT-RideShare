@@ -70,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
 
                             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                             Toast.makeText(HomeActivity.this,"Logout Successful",Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     })
                     .setNegativeButton("Cancel", null)

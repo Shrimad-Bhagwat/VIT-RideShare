@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,19 +25,32 @@ public class GetStarted extends AppCompatActivity {
         setContentView(R.layout.activity_get_started);
         FirebaseMessaging.getInstance().subscribeToTopic("notification");
         getStarted = findViewById(R.id.button);
-        getStarted.setOnClickListener(new View.OnClickListener() {
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Log.d("Test", "Button Clicked");
+            public void run() {
                 if(user != null)
                     startActivity(new Intent(GetStarted.this,HomeActivity.class) );
                 else {
-                    startActivity(new Intent(GetStarted.this,LoginActivity.class) );
-
+                    startActivity(new Intent(GetStarted.this, LoginActivity.class));
                 }
-
+                finish();
             }
-        });
+        }, 2000);
+
+//        getStarted.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("Test", "Button Clicked");
+//                if(user != null)
+//                    startActivity(new Intent(GetStarted.this,HomeActivity.class) );
+//                else {
+//                    startActivity(new Intent(GetStarted.this,LoginActivity.class) );
+//
+//                }
+//
+//            }
+//        });
     }
 
 
