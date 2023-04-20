@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -31,7 +32,9 @@ public class UploadActivity extends AppCompatActivity {
     EditText dateEdt;
     private FirebaseAuth auth;
     private FirebaseUser user;
+    boolean allcheck= false;
     String creator;
+    String name,from,to,date,dateTxt,contact;
     final Calendar myCalendar= Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,12 @@ public class UploadActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         creator = user.getEmail().toString();
+
+        name = nameEdt.getText().toString();
+        from = fromEdt.getText().toString();
+        to = toEdt.getText().toString();
+        date = dateEdt.getText().toString();
+        contact = contactEdt.getText().toString();
 
 
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
@@ -71,10 +80,47 @@ public class UploadActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveData();
+                 allcheck = CheckAllFields();
+                 if(allcheck){
+                     saveData();
+                 }
+
             }
         });
 
+    }
+    private boolean CheckAllFields() {
+        name = nameEdt.getText().toString();
+        from = fromEdt.getText().toString();
+        to = toEdt.getText().toString();
+        date = dateEdt.getText().toString();
+        contact = contactEdt.getText().toString();
+        if (name.length() == 0) {
+            nameEdt.setError("This field is required");
+            return false;
+        }
+
+        if (from.length() == 0) {
+            fromEdt.setError("This field is required");
+            return false;
+        }
+
+        if (to.length() == 0) {
+            toEdt.setError("This field is required");
+            return false;
+        }
+
+        if (date.length() == 0) {
+            dateEdt.setError("This field is required");
+            return false;
+        }
+        if (contact.length() < 8) {
+            contactEdt.setError("This field is required");
+            return false;
+        }
+
+        // after all validation return true.
+        return true;
     }
     public void saveData(){
 
@@ -85,27 +131,34 @@ public class UploadActivity extends AppCompatActivity {
 
         dialog.show();
 
-        String name = nameEdt.getText().toString();
-        String from = fromEdt.getText().toString();
-        String to = toEdt.getText().toString();
-        String date = dateEdt.getText().toString();
-        String contact = contactEdt.getText().toString();
-
+        name = nameEdt.getText().toString();
+        from = fromEdt.getText().toString();
+        to = toEdt.getText().toString();
+        date = dateEdt.getText().toString();
+        contact = contactEdt.getText().toString();
+//        Log.d(name,from+":"+to+":"+date+":"+contact);
         DataClass dataClass = new DataClass(name,from, to, date, contact,creator);
-        FirebaseDatabase.getInstance().getReference("Ride Data").child(name).setValue(dataClass)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(UploadActivity.this, "Saved",Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(UploadActivity.this, e.getMessage().toString(),Toast.LENGTH_SHORT).show();
-                    }
-                });
 
+
+        if(allcheck) {
+
+            FirebaseDatabase.getInstance().getReference("Ride Data").child(name).setValue(dataClass)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(UploadActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(UploadActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }else {
+            Toast.makeText(UploadActivity.this,"Enter all details",Toast.LENGTH_SHORT).show();
+
+        }
     }
     private void updateLabel(){
         String myFormat="dd/MM/yy";
