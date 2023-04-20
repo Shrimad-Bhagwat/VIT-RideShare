@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +30,7 @@ import java.util.Locale;
 
 public class UploadActivity extends AppCompatActivity {
     Button saveButton;
+    ImageView back_button;
     EditText nameEdt,fromEdt,toEdt,contactEdt,descEdt;
     EditText dateEdt;
     private FirebaseAuth auth;
@@ -49,6 +52,8 @@ public class UploadActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
         descEdt = findViewById(R.id.desc);
 
+        back_button = findViewById(R.id.back_button);
+
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         creator = user.getEmail().toString();
@@ -69,6 +74,13 @@ public class UploadActivity extends AppCompatActivity {
                 updateLabel();
             }
         };
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         dateEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

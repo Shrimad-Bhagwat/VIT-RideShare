@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     FloatingActionButton deleteButton;
 
     Button contactButton,whatsappButton;
+    ImageView back_button;
     String key="",contact;
 
     private FirebaseAuth auth;
@@ -44,6 +46,8 @@ public class DetailActivity extends AppCompatActivity {
         name_tv = findViewById(R.id.name_tv);
         date_tv = findViewById(R.id.date_tv);
         desc_tv = findViewById(R.id.desc_tv);
+
+        back_button = findViewById(R.id.back_button);
 
         deleteButton = findViewById(R.id.deleteButton);
         contactButton = findViewById(R.id.contact_button);
@@ -76,6 +80,13 @@ public class DetailActivity extends AppCompatActivity {
             deleteButton.setVisibility(View.INVISIBLE);
 //            Log.d("Not Same",currentUser.toString()+" "+creator.toString());
         }
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                }
+        });
 
         contactButton.setOnClickListener(new View.OnClickListener() {
             @Override
