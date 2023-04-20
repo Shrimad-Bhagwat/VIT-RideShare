@@ -23,7 +23,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 public class DetailActivity extends AppCompatActivity {
 
-    TextView from_tv, to_tv, name_tv, date_tv;
+    TextView from_tv, to_tv, name_tv, date_tv,desc_tv;
 
     FloatingActionButton deleteButton;
 
@@ -43,6 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         to_tv = findViewById(R.id.to_tv);
         name_tv = findViewById(R.id.name_tv);
         date_tv = findViewById(R.id.date_tv);
+        desc_tv = findViewById(R.id.desc_tv);
 
         deleteButton = findViewById(R.id.deleteButton);
         contactButton = findViewById(R.id.contact_button);
@@ -63,6 +64,7 @@ public class DetailActivity extends AppCompatActivity {
             creator = bundle.getString("Creator");
             date_tv.setText(bundle.getString("Date"));
             contact = bundle.getString("Contact");
+            desc_tv.setText(bundle.getString("Desc"));
         }
 
         if(currentUser.equals(creator)){

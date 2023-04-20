@@ -60,11 +60,21 @@
          </RelativeLayout>
 
     <TextView
+        android:id="@+id/name_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
         android:text="Name : Shrimad Bhagwat"
-        android:id="@+id/name_tv"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Date : "
+        android:id="@+id/date_tv"
         android:textSize="20sp"
         android:padding="8dp"
         android:layout_marginStart="30dp"/>
@@ -72,36 +82,52 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Date : "
-        android:id="@+id/date_tv"
+        android:layout_marginTop="20dp"
+        android:text="Desc : "
+        android:paddingEnd="10dp"
+        android:id="@+id/desc_tv"
         android:textSize="20sp"
         android:padding="8dp"
         android:layout_marginStart="30dp"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Contact"
         android:id="@+id/contact_button"
         android:textSize="20sp"
-        android:padding="12dp"
+        android:padding="17dp"
         android:layout_gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:textColor="@color/white"
+
         android:drawableLeft="@drawable/baseline_local_phone_white"/>
 
     <Button
+        android:id="@+id/whatsapp_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:drawableLeft="@drawable/whatsapp_icon"
+        android:layout_marginTop="20dp"
         android:text="Whatsapp"
-        android:id="@+id/whatsapp_button"
+
         android:textSize="20sp"
         android:padding="12dp"
         android:layout_gravity="center"
-        android:textColor="@color/white"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/whatsapp_icon"
+
+
+         />
+</RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

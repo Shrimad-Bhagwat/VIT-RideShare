@@ -113,6 +113,22 @@
                 android:gravity="start|center_vertical"
                 android:inputType="number"
                 />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/desc"
+                android:background="@drawable/custom_edittext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:height="50dp"
+                android:drawableLeft="@drawable/baseline_description_24"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Description"
+                android:gravity="start|center_vertical"
+                android:inputType="text"
+                />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

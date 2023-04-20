@@ -17,6 +17,16 @@ public class DataClass {
     private  String date;
     private  String contact;
     private String key;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    private String desc;
     public String getKey() {
         return key;
     }
@@ -27,13 +37,14 @@ public DataClass(){
 
 }
 
-    public DataClass(String name, String from_location, String to_location, String date, String contact, String creator) {
+    public DataClass(String name, String from_location, String to_location, String date, String contact, String creator, String desc) {
         this.name = name;
         this.from_location = from_location;
         this.to_location = to_location;
         this.date = date;
         this.contact = contact;
         this.creator = creator;
+        this.desc = desc;
     }
 
     public String getName() {

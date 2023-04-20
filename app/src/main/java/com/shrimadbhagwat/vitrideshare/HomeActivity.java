@@ -26,8 +26,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
     FloatingActionButton fab;
@@ -117,7 +122,24 @@ public class HomeActivity extends AppCompatActivity {
                 for (DataSnapshot itemSnapshot: snapshot.getChildren()){
                     DataClass dataClass = itemSnapshot.getValue(DataClass.class);
                     dataClass.setKey(itemSnapshot.getKey());
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+                    Date c = Calendar.getInstance().getTime();
+                    Date d1,d2;
+                    try {
+                        d1 = sdf.parse(dataClass.getDate().toString());
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    String d = sdf.format(c);
+                    try {
+                        d2 = sdf.parse(d);
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    if(d1.compareTo(d2) >0){
+
                     dataList.add(dataClass);
+                    }
                 }
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();

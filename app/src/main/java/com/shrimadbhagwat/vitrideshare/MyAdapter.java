@@ -37,6 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.from_tv.setText(dataList.get(position).getFrom_location());
         holder.to_tv.setText(dataList.get(position).getTo_location());
         holder.date_tv.setText(dataList.get(position).getDate());
+//        holder.desc_tv.setText(dataList.get(position).getDesc());
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 intent.putExtra("To", dataList.get(holder.getAdapterPosition()).getTo_location());
                 intent.putExtra("From",dataList.get(holder.getAdapterPosition()).getFrom_location());
                 intent.putExtra("Date", dataList.get(holder.getAdapterPosition()).getDate());
+                intent.putExtra("Desc", dataList.get(holder.getAdapterPosition()).getDesc());
 
                 intent.putExtra("Key", dataList.get(holder.getAdapterPosition()).getKey());
                 intent.putExtra("Creator", dataList.get(holder.getAdapterPosition()).getCreator());
@@ -67,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 }
 class MyViewHolder extends RecyclerView.ViewHolder{
 
-    TextView name_tv, from_tv, to_tv, date_tv;
+    TextView name_tv, from_tv, to_tv, date_tv,desc_tv;
     Button contact_btn;
     CardView recCard;
     public MyViewHolder(@NonNull View itemView) {
@@ -77,6 +79,7 @@ class MyViewHolder extends RecyclerView.ViewHolder{
         from_tv = itemView.findViewById(R.id.from_tv);
         to_tv = itemView.findViewById(R.id.to_tv);
         date_tv = itemView.findViewById(R.id.date_tv);
+        desc_tv = itemView.findViewById(R.id.desc);
         contact_btn = itemView.findViewById(R.id.contact_button);
     }
 }

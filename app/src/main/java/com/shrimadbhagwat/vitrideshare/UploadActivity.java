@@ -28,13 +28,13 @@ import java.util.Locale;
 
 public class UploadActivity extends AppCompatActivity {
     Button saveButton;
-    EditText nameEdt,fromEdt,toEdt,contactEdt;
+    EditText nameEdt,fromEdt,toEdt,contactEdt,descEdt;
     EditText dateEdt;
     private FirebaseAuth auth;
     private FirebaseUser user;
     boolean allcheck= false;
     String creator;
-    String name,from,to,date,dateTxt,contact;
+    String name,from,to,date,dateTxt,contact,desc;
     final Calendar myCalendar= Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class UploadActivity extends AppCompatActivity {
         dateEdt = findViewById(R.id.idEdtDate);
         contactEdt = findViewById(R.id.contact);
         saveButton = findViewById(R.id.saveButton);
+        descEdt = findViewById(R.id.desc);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -57,7 +58,7 @@ public class UploadActivity extends AppCompatActivity {
         to = toEdt.getText().toString();
         date = dateEdt.getText().toString();
         contact = contactEdt.getText().toString();
-
+        desc = descEdt.getText().toString();
 
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -137,7 +138,8 @@ public class UploadActivity extends AppCompatActivity {
         date = dateEdt.getText().toString();
         contact = contactEdt.getText().toString();
 //        Log.d(name,from+":"+to+":"+date+":"+contact);
-        DataClass dataClass = new DataClass(name,from, to, date, contact,creator);
+        desc = descEdt.getText().toString();
+        DataClass dataClass = new DataClass(name,from, to, date, contact,creator,desc);
 
 
         if(allcheck) {
