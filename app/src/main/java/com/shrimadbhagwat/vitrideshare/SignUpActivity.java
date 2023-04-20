@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
-
+    boolean email_accepted=true;
     private FirebaseAuth auth;
     private EditText signupEmail, signupPassword;
     private Button signupButton;
@@ -37,19 +37,23 @@ public class SignUpActivity extends AppCompatActivity {
         signupPassword = (EditText) findViewById(R.id.signup_password);
         signupButton = findViewById(R.id.signup_button);
         loginRedirectTextView = findViewById(R.id.loginRedirectText);
-
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                email_accepted=true;
                 String user = signupEmail.getText().toString();
+                String[] user_det = user.split("@");
                 String pass = signupPassword.getText().toString();
 //                Log.d(user,pass);
                 if(user.isEmpty() ){
                     signupEmail.setError("Email cannot be empty!");
                 }else if(!Patterns.EMAIL_ADDRESS.matcher(user).matches() ){
                     signupEmail.setError("Enter valid Email!");
+                } else if (!user_det[1].toString().equals("vitbhopal.ac.in")) {
+                    signupEmail.setError("Email not accepted!");
+                    email_accepted=false;
                 }
-
+                Log.d("",user_det[1].toString());
                 if(pass.isEmpty()){
                     signupPassword.setError("Password cannot be empty!");
                 }
@@ -57,7 +61,8 @@ public class SignUpActivity extends AppCompatActivity {
                     signupPassword.setError("Password cannot be less than 6 letters!");
 
                 }
-                else {
+                Log.d("Email Accepted ", String.valueOf(email_accepted));
+                if(email_accepted) {
                     auth
                             .createUserWithEmailAndPassword(user, pass)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -89,6 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
                             });
                 }
             }
+
         });
 
         loginRedirectTextView.setOnClickListener(new View.OnClickListener() {
