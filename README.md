@@ -3,6 +3,7 @@
 
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
+#### [VIT RideShare APK](https://github.com/Shrimad-Bhagwat/VIT-RideShare/releases/download/v1.0.0/vit-rideshare-v1.0.0.apk)
 
 The Cab Sharing Application for the students of VIT Bhopal is a mobile app that enables students to find travel partners and share rides, reducing transportation costs and promoting sustainable transportation.
 
