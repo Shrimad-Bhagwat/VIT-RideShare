@@ -8,7 +8,7 @@ The Cab Sharing Application for the students of VIT Bhopal is a mobile app that 
 
 The application is designed with a simple and user-friendly interface that enables students to easily navigate through the app's features. The app allows students to search for rides or offer rides to other students who are going in the same direction.
 
-![](./images/vit-rideshare-mockup-removebg-hd.png)
+![](./images/vit-rideshare-mockup.png)
 
 ## Usage example
 
