@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -50,6 +51,10 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
     String userEmail;
+    boolean call_permission;
+    String[] permissions = {"android.permission.CALL_PHONE"};
+
+
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -120,6 +125,7 @@ public class HomeActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 //        getSupportActionBar().setIcon(R.drawable.cabicon);
 //        getSupportActionBar().setTitle("VIT RideShare");
+        requestPermissions(permissions,80);
 
 
         FirebaseMessaging.getInstance().subscribeToTopic("notification");
@@ -211,6 +217,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if(requestCode==80){
+//            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+//                Toast.makeText(HomeActivity.this,"Permission Granted",Toast.LENGTH_SHORT).show();
+//                call_permission=true;
+//            }else {
+//                Toast.makeText(HomeActivity.this,"Permission Needed",Toast.LENGTH_SHORT).show();
+//                call_permission=false;
+//            }
+//        }
+//    }
+
     public void searchList(String text){
         ArrayList<DataClass> searchList = new ArrayList<>();
         for (DataClass dataClass: dataList){

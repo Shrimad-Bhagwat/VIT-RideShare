@@ -1,13 +1,19 @@
 package com.shrimadbhagwat.vitrideshare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,10 +39,12 @@ public class DetailActivity extends AppCompatActivity {
     Button contactButton,whatsappButton;
     ImageView back_button;
     String key="",contact;
+    boolean call_permission=true;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
     String currentUser,creator;
+    String[] permissions = {"android.permission.CALL_PHONE"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +66,9 @@ public class DetailActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         currentUser = user.getEmail().toString();
-
+        if(ContextCompat.checkSelfPermission(this,permissions[0])!=PackageManager.PERMISSION_GRANTED){
+            call_permission=false;
+        }
 
         Bundle bundle = getIntent().getExtras();
 
@@ -93,11 +103,17 @@ public class DetailActivity extends AppCompatActivity {
         contactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
 
-                Uri x = Uri.parse("tel:+91"+contact.toString());
-                callIntent.setData(Uri.parse(String.valueOf(x)));
-                startActivity(callIntent);
+                requestPermissions(permissions,80);
+                if(call_permission){
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    Uri x = Uri.parse("tel:+91"+contact.toString());
+                    callIntent.setData(Uri.parse(String.valueOf(x)));
+                    startActivity(callIntent);
+                }else {
+
+                    Toast.makeText(DetailActivity.this,"Call Permission needed!",Toast.LENGTH_SHORT).show();;
+                }
             }
         });
         whatsappButton.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +125,7 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,5 +149,18 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==80){
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+//                Toast.makeText(DetailActivity.this,"Permission Granted",Toast.LENGTH_SHORT).show();
+                call_permission=true;
+            }else {
+//                Toast.makeText(DetailActivity.this,"Permission Needed",Toast.LENGTH_SHORT).show();
+                call_permission=false;
+            }
+        }
     }
 }

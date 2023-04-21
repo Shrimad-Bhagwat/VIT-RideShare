@@ -118,6 +118,10 @@ public class UploadActivity extends AppCompatActivity {
         to = toEdt.getText().toString();
         date = dateEdt.getText().toString();
         contact = contactEdt.getText().toString();
+
+        String dateFormatRegex = "^(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/\\d{2}$";
+
+
         if (name.length() == 0) {
             nameEdt.setError("This field is required");
             return false;
@@ -137,7 +141,15 @@ public class UploadActivity extends AppCompatActivity {
             dateEdt.setError("This field is required");
             return false;
         }
-        if (contact.length() < 8) {
+
+        if (date.matches(dateFormatRegex)) {
+
+        } else {
+            dateEdt.setError("Enter a valid date!");
+//            Toast.makeText(this, "Please enter a date in the format dd/mm/yy.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (contact.length() < 9) {
             contactEdt.setError("This field is required");
             return false;
         }
@@ -162,6 +174,7 @@ public class UploadActivity extends AppCompatActivity {
 //        Log.d(name,from+":"+to+":"+date+":"+contact);
         desc = descEdt.getText().toString();
         DataClass dataClass = new DataClass(name,from, to, date, contact,creator,desc);
+
 
 
         if(allcheck) {
